@@ -46,7 +46,7 @@ function git_current_branch() {
 
 # to add current git branch in prompt
 
-export PS1="\[\e[33;40m\][\]\w\] \[\e[m\\e[0;36m\]***\[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\]***]\[\e[m\\e[35;40m\] \$ ︻┳テ=一 \$\[ \e[m\]"
+export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]***\[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\]***]\[\e[m\\e[35;40m\] \$ ︻┳テ=一 \$\[ \e[m\]"
 # ------------------------
 
 # Load RVM function
