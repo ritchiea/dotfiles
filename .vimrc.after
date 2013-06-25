@@ -1,0 +1,11 @@
+color tomorrow
+set guifont=Source\ Code\ Pro:h16
+set autoread
+map <F9> :set hls!<CR>
+map <F10> :set number!<CR>
+map <Leader><CR> O<Esc>
+map <CR> o<Esc>
+map <Leader>w :set wrap!<CR> 
+au BufRead,BufNewFile *.scss set filetype=scss
+au BufRead,BufNewFile *.pjs set filetype=javascript
+au BufRead,BufNewFile *.pde setf processing

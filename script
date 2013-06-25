@@ -1,0 +1,9 @@
+#!bin/bash
+
+echo "catting filez"
+
+cat ~/.bash_profile > .bash_profile
+cat ~/.vimrc.after > .vimrc.after
+cat ~/.inputrc > .inputrc
+
+echo "done"
