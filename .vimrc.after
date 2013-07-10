@@ -9,3 +9,4 @@ map <Leader>w :set wrap!<CR>
 au BufRead,BufNewFile *.scss set filetype=scss
 au BufRead,BufNewFile *.pjs set filetype=javascript
 au BufRead,BufNewFile *.pde setf processing
+set macmeta

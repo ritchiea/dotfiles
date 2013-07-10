@@ -119,9 +119,11 @@ alias editp="vi ~/.bash_profile"
 # solr
 
 alias solrstartdev="rake sunspot:solr:start RAILS_ENV=development"
+alias bexsolrstartdev="bundle exec rake sunspot:solr:start RAILS_ENV=development"
 alias solrstarttest="rake sunspot:solr:start RAILS_ENV=test"
 alias solrstoptest="rake sunspot:solr:stop RAILS_ENV=test"
 alias solrstopdev="rake sunspot:solr:stop RAILS_ENV=development"
+alias bexsolrstopdev="bundle exec rake sunspot:solr:stop RAILS_ENV=development"
 
 # clojure
 
