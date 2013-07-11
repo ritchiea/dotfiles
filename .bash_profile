@@ -136,10 +136,10 @@ alias es='/usr/local/elasticsearch-0.20.6/bin/elasticsearch -f'
 alias unicorn='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist; unicorn_rails -c config/unicorn.conf.rb'
 
 # git
-
 function gpsh() {
-  git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///' | git push origin $@
+ git push origin $(git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///') 
 }
+
 alias gclo="git clone"
 alias gbegin="git checkout -b"
 alias gadd="git add"
