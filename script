@@ -4,6 +4,7 @@ echo "catting filez"
 
 cat ~/.bash_profile > .bash_profile
 cat ~/.vimrc.after > .vimrc.after
+cat ~/.vimrc.before > .vimrc.before
 cat ~/.inputrc > .inputrc
 
 echo "done"
