@@ -4,9 +4,11 @@ set autoread
 map <F9> :set hls!<CR>
 map <F10> :set number!<CR>
 map <Leader><CR> O<Esc>
-map <CR> o<Esc>
+map <C-CR> o<Esc>
 map <Leader>w :set wrap!<CR> 
 au BufRead,BufNewFile *.scss set filetype=scss
 au BufRead,BufNewFile *.pjs set filetype=javascript
 au BufRead,BufNewFile *.pde setf processing
-set macmeta
+if has('gui_running')
+  set macmeta
+endif
