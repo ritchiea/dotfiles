@@ -137,7 +137,7 @@ alias unicorn='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist
 
 # git
 function gpsh() {
- git push origin $(git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///') 
+  git push origin $(git_current_branch)
 }
 
 alias gclo="git clone"
