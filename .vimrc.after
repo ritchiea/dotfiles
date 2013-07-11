@@ -1,6 +1,7 @@
 color tomorrow
 set guifont=Source\ Code\ Pro:h16
 set autoread
+set nohls
 map <F9> :set hls!<CR>
 map <F10> :set number!<CR>
 map <Leader><CR> O<Esc>
