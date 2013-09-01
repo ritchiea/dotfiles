@@ -58,19 +58,20 @@ export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]***\[\$(git branch 2>/dev/null
 . ~/nvm/nvm.sh
 
 # from cbuzz bash_profile test to install sql
-export PATH=$PATH:/usr/local/git/bin:/usr/local/mysql/bin:./node_modules/.bin
+export PATH=$PATH:/usr/local/git/bin:./node_modules/.bin
+#/usr/local/mysql/bin:
 # export CC=gcc-4.2 #set gcc compiler (no longer excode default)
 
 # for leiningen
 export PATH=$PATH:$HOME/.lein/bin
 
 # for postgres
-PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 
 # BELOW IS FOR MYSQL
-export MYSQL=/usr/local/mysql/bin
-export PATH=$PATH:$MYSQL
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+#export MYSQL=/usr/local/mysql/bin
+#export PATH=$PATH:$MYSQL
+# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 # bundle editor
 export BUNDLER_EDITOR=mvim
@@ -86,6 +87,7 @@ alias l="ls $LS_OPTIONS -GlAhF" # all above + ALL ENTRIES including hidden
 alias clr="clear"
 alias ..="cd .."
 alias ...="cd ../.."
+alias cdg='cd $(git rev-parse --show-cdup)'
 alias code="cd /Users/andrewritchie/Dropbox/code"
 
 # sublime
@@ -100,11 +102,15 @@ alias v.="vi ."
 # alias mdbs="./mongodb-osx-x86_64-2.0.4/bin/mongod"
 # alias mdbc="./mongodb-osx-x86_64-2.0.4/bin/mongo"
 
+# tanooki
+
+alias bowcaprestore="pg_restore --verbose --clean --no-acl --no-owner -h localhost -d bowcap_dev latest.dump"
+
 # Rails
 
 alias bex="bundle exec"
 alias routeme="bundle exec rake routes"
-alias rg="rails generate"
+alias dbmg="bundle exec rake db:migrate"
 
 # Rails 2
 
@@ -140,12 +146,15 @@ function gpsh() {
   git push origin $(git_current_branch)
 }
 
+function gpll() {
+  git pull origin $(git_current_branch)
+}
 alias gclo="git clone"
 alias gbegin="git checkout -b"
 alias gadd="git add"
 alias gst="git status"
 #alias gpsh="git push origin"
-alias gpll="git pull"
+#alias gpll="git pull"
 alias gco="git checkout"
 alias gmrg="git merge"
 alias gcm="git commit -m"
