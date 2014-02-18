@@ -10,21 +10,21 @@
     else
       find=$1; shift
       replace=$1; shift
- 
+
       ORIG_GLOBIGNORE=$GLOBIGNORE
       GLOBIGNORE=*.*
-      
+
       if [[ "$#" = "0" ]]; then
         set -- ' ' $@
       fi
- 
+
       while [[ "$#" -gt "0" ]]; do
         for file in `git grep -l $find -- $1`; do
           sed -i '' -e"s/$find/$replace/g" $file
         done
         shift
       done
- 
+
       GLOBIGNORE=$ORIG_GLOBIGNORE
     fi
   }
@@ -51,8 +51,6 @@ export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]***\[\$(git branch 2>/dev/null
 
 # Load RVM function
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
 # load NVM
 
 . ~/nvm/nvm.sh
@@ -60,7 +58,7 @@ export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]***\[\$(git branch 2>/dev/null
 # from cbuzz bash_profile test to install sql
 export PATH=$PATH:/usr/local/git/bin:./node_modules/.bin
 #/usr/local/mysql/bin:
-# export CC=gcc-4.2 #set gcc compiler (no longer excode default)
+export CC=gcc-4.2 #set gcc compiler (no longer excode default)
 
 # for leiningen
 export PATH=$PATH:$HOME/.lein/bin
@@ -69,12 +67,12 @@ export PATH=$PATH:$HOME/.lein/bin
 export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 
 # BELOW IS FOR MYSQL
-#export MYSQL=/usr/local/mysql/bin
-#export PATH=$PATH:$MYSQL
-# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+export MYSQL=/usr/local/mysql/bin
+export PATH=$PATH:$MYSQL
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 # bundle editor
-export BUNDLER_EDITOR=mvim
+export BUNDLER_EDITOR=vi
 
 # Aliases
 
@@ -89,6 +87,10 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias cdg='cd $(git rev-parse --show-cdup)'
 alias code="cd /Users/andrewritchie/Dropbox/code"
+
+# neo4j
+alias neo4j="/Users/andrewritchie/Dropbox/code/libraries/neo4j-community-1.9.3/bin/neo4j start"
+alias stopneo="/Users/andrewritchie/Dropbox/code/libraries/neo4j-community-1.9.3/bin/neo4j stop"
 
 # sublime
 alias s.="subl ."
@@ -111,6 +113,8 @@ alias bowcaprestore="pg_restore --verbose --clean --no-acl --no-owner -h localho
 alias bex="bundle exec"
 alias routeme="bundle exec rake routes"
 alias dbmg="bundle exec rake db:migrate"
+alias dbmgtest="bundle exec rake db:migrate RAILS_ENV=test"
+alias dorspec="bundle exec rspec spec"
 
 # Rails 2
 
@@ -124,12 +128,10 @@ alias editp="vi ~/.bash_profile"
 
 # solr
 
-alias solrstartdev="rake sunspot:solr:start RAILS_ENV=development"
-alias bexsolrstartdev="bundle exec rake sunspot:solr:start RAILS_ENV=development"
+alias solrstartdev="bundle exec rake sunspot:solr:start RAILS_ENV=development"
 alias solrstarttest="rake sunspot:solr:start RAILS_ENV=test"
+alias solrstopdev="bundle exec rake sunspot:solr:stop RAILS_ENV=development"
 alias solrstoptest="rake sunspot:solr:stop RAILS_ENV=test"
-alias solrstopdev="rake sunspot:solr:stop RAILS_ENV=development"
-alias bexsolrstopdev="bundle exec rake sunspot:solr:stop RAILS_ENV=development"
 
 # clojure
 
@@ -140,6 +142,10 @@ alias clojure="java -cp clojure-1.4.0.jar clojure.main"
 alias es='/usr/local/elasticsearch-0.20.6/bin/elasticsearch -f'
 # unicorn
 alias unicorn='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist; unicorn_rails -c config/unicorn.conf.rb'
+
+#bt
+alias btrestore='pg_restore --verbose --clean --no-acl --no-owner -h localhost -d bnt_dev latest.dump'
+alias btconsole='heroku run rails console -a bookandtable'
 
 # git
 function gpsh() {
@@ -161,8 +167,15 @@ alias gcm="git commit -m"
 alias gbr="git branch"
 alias grb="git rebase -i"
 alias gtool="git mergetool"
-alias push_tprod='git push heroku-prod master'
-alias push_tstag='git push heroku-stag staging:master'
+#alias push_tprod='git push heroku-prod master'
+#alias push_tstag='git push heroku-stag staging:master'
+alias such='git'
+alias very='git'
+alias wow='git status'
+
+#python
+#export PATH=/Library/Frameworks/Python.framework/Versions/3.3/bin:$PATH
+
 # {{{
 # Node Completion - Auto-generated, do not touch.
 shopt -s progcomp
@@ -174,3 +187,9 @@ done
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+if [ -f $HOME/.venvburrito/startup.sh ]; then
+    . $HOME/.venvburrito/startup.sh
+fi
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
