@@ -76,6 +76,8 @@ export BUNDLER_EDITOR=vi
 
 # Aliases
 
+alias fuckoff="kill -9"
+
 # Navigating directories
 
 alias lsa="ls $LS_OPTIONS -a ~/"
@@ -115,6 +117,7 @@ alias routeme="bundle exec rake routes"
 alias dbmg="bundle exec rake db:migrate"
 alias dbmgtest="bundle exec rake db:migrate RAILS_ENV=test"
 alias dorspec="bundle exec rspec spec"
+alias precom="rake assets:precompile"
 
 # Rails 2
 
