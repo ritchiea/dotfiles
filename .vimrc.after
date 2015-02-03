@@ -2,15 +2,16 @@ vnoremap . :norm.<CR>
 let &t_Co=256
 colorscheme tomorrownbright
 highlight LineNr ctermfg=grey
-set guifont=Source\ Code\ Pro:h16
 set autoread
 set nohls
+set guifont=Inconsolata:h18
 map <F9> :set hls!<CR>
 map <F10> :set number!<CR>
 map <Leader><CR> O<Esc>
 map <C-CR> o<Esc>
 map <Leader>w :set wrap!<CR>
 map <C-y> :Yanks<CR>
+nnoremap Q <nop>
 au BufRead,BufNewFile *.scss set filetype=scss
 au BufRead,BufNewFile *.pjs set filetype=javascript
 au BufRead,BufNewFile *.pde setf processing
@@ -18,17 +19,17 @@ if has('gui_running')
   set macmeta
 endif
 " Strip trailing whitespace
-function! <SID>StripTrailingWhitespaces()
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  " Do the business:
-  %s/\s\+$//e
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-endfunction
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+"function! <SID>StripTrailingWhitespaces()
+"  " Preparation: save last search, and cursor position.
+"  let _s=@/
+"  let l = line(".")
+"  let c = col(".")
+"  " Do the business:
+"  %s/\s\+$//e
+"  " Clean up: restore previous search history, and cursor position
+"  let @/=_s
+"  call cursor(l, c)
+"endfunction
+"autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
