@@ -135,8 +135,9 @@ alias bex="bundle exec"
 alias routeme="bundle exec rake routes"
 alias dbmg="bundle exec rake db:migrate"
 alias dbmgtest="bundle exec rake db:migrate RAILS_ENV=test"
-alias dorspec="bundle exec rspec spec"
+alias dorspec="rake db:test:prepare && cdg && bundle exec rspec spec"
 alias precom="rake assets:precompile"
+alias anno="annotate --exclude tests,fixtures,factories,serializers"
 
 # Rails 2
 
@@ -176,12 +177,11 @@ alias gclo="git clone"
 alias gbegin="git checkout -b"
 alias gadd="git add"
 alias gst="git status"
-#alias gpsh="git push origin"
-#alias gpll="git pull"
 alias gco="git checkout"
 alias gmrg="git merge"
 alias gcm="git commit -m"
 alias gbr="git branch"
+alias gdf="git diff"
 alias grb="git rebase -i"
 alias gtool="git mergetool"
 #alias push_tprod='git push heroku-prod master'
@@ -189,6 +189,11 @@ alias gtool="git mergetool"
 alias such='git'
 alias very='git'
 alias wow='git status'
+
+alias acspulldb='heroku pg:pull HEROKU_POSTGRESQL_PINK_URL acs_dev -a allcollegestorage'
+alias acsdbpull='heroku pg:pull HEROKU_POSTGRESQL_PINK_URL acs_dev -a allcollegestorage'
+
+alias catbp='cat ~/.bash_profile'
 
 #python
 #export PATH=/Library/Frameworks/Python.framework/Versions/3.3/bin:$PATH
