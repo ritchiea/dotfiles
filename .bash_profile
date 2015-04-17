@@ -65,7 +65,7 @@ export GOROOT=/usr/local/go
 export GOPATH=/Users/ritchie/Dropbox/code/gocode
 
 # for postgres
-export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
 
 # BELOW IS FOR MYSQL
 #export MYSQL=/usr/local/mysql/bin
