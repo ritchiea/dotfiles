@@ -1,6 +1,6 @@
 vnoremap . :norm.<CR>
 let &t_Co=256
-colorscheme tomorrownbright
+colorscheme Tomorrow-Night-Bright
 highlight LineNr ctermfg=grey
 set autoread
 set nohls

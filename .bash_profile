@@ -51,10 +51,6 @@ export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]*\[\$(git branch 2>/dev/null |
 
 # Load RVM function
 
-# load NVM
-
-. ~/nvm/nvm.sh
-
 # from cbuzz bash_profile test to install sql
 export PATH=$PATH:/usr/local/git/bin:./node_modules/.bin
 #/usr/local/mysql/bin:
@@ -64,9 +60,9 @@ export PATH=$PATH:/usr/local/git/bin:./node_modules/.bin
 export PATH=$PATH:$HOME/.lein/bin
 
 # for go
-export PATH=$PATH:/usr/local/go/bin:/Users/andrewritchie/Dropbox/code/gocode/bin
+export PATH=$PATH:/usr/local/go/bin:/Users/ritchie/Dropbox/code/gocode/bin
 export GOROOT=/usr/local/go
-export GOPATH=/Users/andrewritchie/Dropbox/code/gocode
+export GOPATH=/Users/ritchie/Dropbox/code/gocode
 
 # for postgres
 export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
@@ -97,11 +93,11 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias cdg='cd $(git rev-parse --show-cdup)'
-alias code="cd /Users/andrewritchie/Dropbox/code"
+alias code="cd /Users/ritchie/Dropbox/code"
 
 # neo4j
-alias neo4j="/Users/andrewritchie/Dropbox/code/libraries/neo4j-community-1.9.3/bin/neo4j start"
-alias stopneo="/Users/andrewritchie/Dropbox/code/libraries/neo4j-community-1.9.3/bin/neo4j stop"
+alias neo4j="/Users/ritchie/Dropbox/code/libraries/neo4j-community-1.9.3/bin/neo4j start"
+alias stopneo="/Users/ritchie/Dropbox/code/libraries/neo4j-community-1.9.3/bin/neo4j stop"
 
 # sublime
 alias s.="subl ."
@@ -158,7 +154,7 @@ alias solrstoptest="bundle exec rake sunspot:solr:stop RAILS_ENV=test"
 
 # clojure
 
-alias cdclo="cd /Users/andrewritchie/Dropbox/code/clojure-1.4.0"
+alias cdclo="cd /Users/ritchie/Dropbox/code/clojure-1.4.0"
 alias clojure="java -cp clojure-1.4.0.jar clojure.main"
 
 #bt
@@ -224,17 +220,5 @@ alias droplet="ssh ar@104.236.89.20"
 
 ######
 alias flushdns='sudo killall -HUP mDNSResponder'
-
-# {{{
-# Node Completion - Auto-generated, do not touch.
-shopt -s progcomp
-for f in $(command ls ~/.node-completion); do
-  f="$HOME/.node-completion/$f"
-  test -f "$f" && . "$f"
-done
-# }}}
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
