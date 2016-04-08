@@ -30,6 +30,7 @@ function! <SID>StripTrailingWhitespaces()
   let @/=_s
   call cursor(l, c)
 endfunction
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+"autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
+set rnu

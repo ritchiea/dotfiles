@@ -46,7 +46,8 @@ function git_current_branch() {
 
 # to add current git branch in prompt
 
-export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]*\[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\]*]\[\e[m\\e[35;40m\] \$ ︻┳テ=一 \$\[ \e[m\]"
+#export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]*\[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\]*]\[\e[m\\e[35;40m\] \$ ︻┳テ=一 \$\[ \e[m\]"
+export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]*\[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\]*]\[\e[m\\e[35;40m\] \$\[ \e[m\]"
 # ------------------------
 
 # Load RVM function
@@ -179,17 +180,19 @@ alias gbegin="git checkout -b"
 alias gadd="git add"
 alias gst="git status"
 alias gco="git checkout"
-alias gmrg="git merge"
+alias gmrg="git merge --ff-only"
 alias gcm="git commit -m"
 alias gbr="git branch"
 alias gdf="git diff"
 alias grb="git rebase -i"
 alias gtool="git mergetool"
+alias graph="git log --decorate --oneline --all --graph"
+alias amend="git commit --amend"
 #alias push_tprod='git push heroku-prod master'
 #alias push_tstag='git push heroku-stag staging:master'
-alias such='git'
-alias very='git'
-alias wow='git status'
+#alias such='git'
+#alias very='git'
+#alias wow='git status'
 
 alias acspulldb='heroku pg:pull HEROKU_POSTGRESQL_PINK_URL acs_dev -a allcollegestorage'
 alias acsdbpull='heroku pg:pull HEROKU_POSTGRESQL_PINK_URL acs_dev -a allcollegestorage'
@@ -232,5 +235,9 @@ alias flushdns='sudo killall -HUP mDNSResponder'
 alias ack='ack --ignore-dir={tmp,log}'
 
 alias bernie='ssh ar@45.55.195.168'
+
+alias pres='pg_restore --verbose --data-only --no-acl --no-owner -h localhost -U'
+alias capturedb='heroku pg:backups capture'
+alias curlbobdb='curl -o latest.dump `heroku pg:backups public-url -a betteroffbowling2`'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
