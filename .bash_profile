@@ -211,7 +211,6 @@ alias bernie='ssh ar@45.55.195.168'
 
 alias pres='pg_restore --verbose --data-only --no-acl --no-owner -h localhost -U'
 alias capturedb='heroku pg:backups capture'
-alias curlbobdb='curl -o latest.dump `heroku pg:backups public-url -a betteroffbowling2`'
 
 alias myzip='zip -x *.git* *node_modules/**\* *.sass-cache/**\*'
 
