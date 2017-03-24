@@ -54,8 +54,6 @@ export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]*\[\$(git branch 2>/dev/null |
 
 # from cbuzz bash_profile test to install sql
 export PATH=$PATH:/usr/local/git/bin:./node_modules/.bin
-#/usr/local/mysql/bin:
-#export CC=gcc-4.2 #set gcc compiler (no longer excode default)
 
 # for leiningen
 export PATH=$PATH:$HOME/.lein/bin
@@ -78,8 +76,6 @@ export BUNDLER_EDITOR=vim
 
 # Aliases
 
-alias fuckoff="kill -9"
-
 #elasticsearch
 alias elsearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 
@@ -97,7 +93,7 @@ alias cdg='cd $(git rev-parse --show-cdup)'
 alias code="cd /Users/ritchie/code"
 
 #flush cache
-alias flushcache='sudo discoveryutil mdnsflushcache'
+#alias flushcache='sudo discoveryutil mdnsflushcache'
 
 # neo4j
 alias neo4j="/Users/ritchie/code/libraries/neo4j-community-1.9.3/bin/neo4j start"
@@ -115,19 +111,7 @@ alias v.="vi ."
 # alias mdbs="./mongodb-osx-x86_64-2.0.4/bin/mongod"
 # alias mdbc="./mongodb-osx-x86_64-2.0.4/bin/mongo"
 
-# tanooki
-
-alias bowcaprestore="pg_restore --verbose --clean --no-acl --no-owner -h localhost -d bowcap_dev latest.dump"
-
-# docker
-
 export DOCKER_HOST=tcp://127.0.0.1:4243
-function dockerForward() {
-  for i in {49000..49900}; do
-     VBoxManage modifyvm "boot2docker-vm" --natpf1 "tcp-port$i,tcp,,$i,,$i";
-     VBoxManage modifyvm "boot2docker-vm" --natpf1 "udp-port$i,udp,,$i,,$i";
-  done
-}
 
 # Rails
 
@@ -139,11 +123,6 @@ alias dbprepare="rake db:test:prepare"
 alias dorspec="rake db:test:prepare && cdg && bundle exec rspec spec"
 alias precom="rake assets:precompile"
 alias anno="annotate --exclude tests,fixtures,factories,serializers"
-
-# Rails 2
-
-alias rserver="./script/server"
-alias rconsole="./script/console"
 
 # bash_profile
 
@@ -163,10 +142,6 @@ alias solrstoptest="bundle exec rake sunspot:solr:stop RAILS_ENV=test"
 alias cdclo="cd /Users/ritchie/code/clojure-1.4.0"
 alias clojure="java -cp clojure-1.4.0.jar clojure.main"
 
-#bt
-alias btrestore='pg_restore --verbose --clean --no-acl --no-owner -h localhost -d bnt_dev latest.dump'
-alias btconsole='heroku run rails console -a bookandtable'
-
 # git
 function gpsh() {
   git push origin $(git_current_branch)
@@ -185,6 +160,7 @@ alias gcm="git commit -m"
 alias gbr="git branch"
 alias gdf="git diff"
 alias grb="git rebase -i"
+alias gfch="git fetch --all"
 alias gtool="git mergetool"
 alias graph="git log --decorate --oneline --all --graph"
 alias amend="git commit --amend"
@@ -193,9 +169,6 @@ alias amend="git commit --amend"
 #alias such='git'
 #alias very='git'
 #alias wow='git status'
-
-alias acspulldb='heroku pg:pull HEROKU_POSTGRESQL_PINK_URL acs_dev -a allcollegestorage'
-alias acsdbpull='heroku pg:pull HEROKU_POSTGRESQL_PINK_URL acs_dev -a allcollegestorage'
 
 alias lolpulldb='rake db:drop; heroku pg:pull DATABASE_URL mrloldev'
 
@@ -232,7 +205,7 @@ alias droplet="ssh ar@104.236.89.20"
 ######
 alias flushdns='sudo killall -HUP mDNSResponder'
 
-alias ack='ack --ignore-dir={tmp,log}'
+alias ack='ack --ignore-dir={tmp,log,node_modules}'
 
 alias bernie='ssh ar@45.55.195.168'
 
@@ -240,4 +213,6 @@ alias pres='pg_restore --verbose --data-only --no-acl --no-owner -h localhost -U
 alias capturedb='heroku pg:backups capture'
 alias curlbobdb='curl -o latest.dump `heroku pg:backups public-url -a betteroffbowling2`'
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+alias myzip='zip -x *.git* *node_modules/**\* *.sass-cache/**\*'
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
