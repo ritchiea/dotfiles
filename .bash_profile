@@ -40,6 +40,10 @@ fi
 #   env CC="/usr/bin/gcc" ARCHFLAGS="-arch x86_64" ARCHS="x86_64" $*
 # }
 
+function myzip() {
+  echo $1; zip -r $1.zip . -x *.git* *node_modules/**\* *.sass-cache/**\*
+}
+
 function git_current_branch() {
   git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///'
 }
@@ -52,14 +56,10 @@ export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]*\[\$(git branch 2>/dev/null |
 
 # Load RVM function
 
-# from cbuzz bash_profile test to install sql
-export PATH=$PATH:/usr/local/git/bin:./node_modules/.bin
+export PATH=:"./node_modules/.bin:$PATH:/usr/local/git/bin"
 
-# for leiningen
-export PATH=$PATH:$HOME/.lein/bin
 
 # for go
-export PATH=$PATH:/usr/local/go/bin:/Users/ritchie/code/gocode/bin
 export GOROOT=/usr/local/go
 export GOPATH=/Users/ritchie/code/gocode
 
@@ -111,7 +111,7 @@ alias v.="vi ."
 # alias mdbs="./mongodb-osx-x86_64-2.0.4/bin/mongod"
 # alias mdbc="./mongodb-osx-x86_64-2.0.4/bin/mongo"
 
-export DOCKER_HOST=tcp://127.0.0.1:4243
+#export DOCKER_HOST=tcp://127.0.0.1:4243
 
 # Rails
 
@@ -212,6 +212,15 @@ alias bernie='ssh ar@45.55.195.168'
 alias pres='pg_restore --verbose --data-only --no-acl --no-owner -h localhost -U'
 alias capturedb='heroku pg:backups capture'
 
-alias myzip='zip -x *.git* *node_modules/**\* *.sass-cache/**\*'
+alias deleteMergedBranches='git branch --merged | grep -v master | xargs -n 1 git branch -d'
+
+alias pullacsdb="heroku pg:pull HEROKU_POSTGRESQL_PINK acs_dev -a allcollegestorage"
+
+export PATH="$PATH:/Users/ritchie/code/historian"
+alias hist="/Users/ritchie/code/historian/hist"
+
+alias kubeh="minikube start --vm-driver=xhyve"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
