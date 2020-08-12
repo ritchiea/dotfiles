@@ -1,0 +1,10 @@
+--ignore-dir=.idea/
+--ignore-dir=node_modules/
+--ignore-dir=.next/
+--ignore-dir=tmp/
+--ignore-dir=log/
+
+--type-add=css=scss
+--type-add=ruby=.haml,.rselm,.feature,.ru,.locko
+
+--type-set=json=.json
