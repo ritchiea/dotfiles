@@ -86,3 +86,4 @@ alias m.="mvim ."
 alias reload="source ~/.zprofile"
 alias editp="vi ~/.zprofile"
 alias editv="vi ~/.vimrc"
+. /usr/local/etc/profile.d/z.sh
