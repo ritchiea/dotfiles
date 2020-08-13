@@ -29,6 +29,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'tpope/vim-commentary'
+Plugin 'prettier/vim-prettier'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
