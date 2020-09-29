@@ -86,3 +86,9 @@ alias m.="mvim ."
 alias reload="source ~/.zprofile"
 alias editp="vi ~/.zprofile"
 alias editv="vi ~/.vimrc"
+
+alias deleteMergedBranches='git branch --merged | grep -v master | xargs -n 1 git branch -d'
+
+echo "Today's oblique strategy:"
+fortune ~/obliqueMOTD/obliquestrategies ~/obliqueMOTD/diebenkorn_notes
+echo ''

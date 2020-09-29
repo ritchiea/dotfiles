@@ -4,6 +4,9 @@
 --ignore-dir=tmp/
 --ignore-dir=log/
 
+--ignore-file=is:yarn.lock
+--ignore-file=is:package-lock.json
+
 --type-add=css=scss
 --type-add=ruby=.haml,.rselm,.feature,.ru,.locko
 
