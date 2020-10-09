@@ -59,18 +59,22 @@ function git_current_branch() {
 # to add current git branch in prompt
 
 #export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]*\[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\]*]\[\e[m\\e[35;40m\] \$ ︻┳テ=一 \$\[ \e[m\]"
-export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]*\[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\]*]\[\e[m\\e[35;40m\] \$\[ \e[m\]"
+
+# pre-starship prompt
+#export PS1="\[\e[33;40m\][\[\w\] \[\e[m\\e[0;36m\]*\[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\]*]\[\e[m\\e[35;40m\] \$\[ \e[m\]"
 # ------------------------
 
 export PATH=:"./node_modules/.bin:$PATH:/usr/local/git/bin"
 
 # for go
-export GOROOT=/usr/local/opt/go@1.12
+export GOROOT=/usr/local/opt/go@1.12/libexec
 export GOPATH=/Users/ritchie/code/gocode
+
+export PATH=$PATH:/usr/local/opt/go@1.12/bin
 
 # for postgres
 #export PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
-export PATH="/Applications/Postgres.app/Contents/Versions/10/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/12/bin:$PATH"
 
 # BELOW IS FOR MYSQL
 #export MYSQL=/usr/local/mysql/bin
@@ -242,13 +246,21 @@ source ~/git-completion.bash
 # cargo, go's non-glide package manager
 #export PATH="$HOME/.cargo/bin:$PATH"
 
-nvmload() {
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    nvm use 10
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function nvmu {
+  nvm use
 }
 
+
+#eval "$(pyenv init -)"
+
+export LDFLAGS="-L/usr/local/opt/libxml2/lib"
+export CPPFLAGS="-I/usr/local/opt/libxml2/include"
+export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
+
 source /Users/ritchie/Library/Preferences/org.dystroy.broot/launcher/bash/br
-source ~/.bluecanvas.bash
 export PATH="/usr/local/opt/go@1.12/bin:$PATH"
+export PATH="/Users/ritchie/code/gocode/bin:$PATH"
