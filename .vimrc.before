@@ -1,2 +1,0 @@
-call janus#disable_plugin('buffergator')
-call janus#disable_plugin('surround')
