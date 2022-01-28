@@ -101,7 +101,6 @@ set shiftwidth=2
 set ruler
 set nowrap
 set rnu
-set nu
 set laststatus=2
 set wildignore+=*/node_modules/*
 set ignorecase

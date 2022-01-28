@@ -67,10 +67,12 @@ function git_current_branch() {
 export PATH=:"./node_modules/.bin:$PATH:/usr/local/git/bin"
 
 # for go
-export GOROOT=/usr/local/opt/go@1.12/libexec
-export GOPATH=/Users/ritchie/code/gocode
+#export GOROOT=/usr/local/opt/go@1.12/libexec
+#export GOPATH=/Users/ritchie/code/gocode
 
-export PATH=$PATH:/usr/local/opt/go@1.12/bin
+alias gotest="go test ./..."
+
+#export PATH=$PATH:/usr/local/opt/go@1.12/bin
 
 # for postgres
 #export PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
@@ -213,9 +215,6 @@ alias npmnuke="rm -rf node_modules && npm cache clear && npm i"
 #alias tutumworker="celery -A tutum-app worker -E -c 4 -l DEBUG -O fair"
 #alias tutomstart="./manage.py run_gunicorn --log-level=DEBUG --debug"
 
-###########
-alias droplet="ssh ar@104.236.89.20"
-
 ######
 alias flushdns='sudo killall -HUP mDNSResponder'
 
@@ -254,7 +253,6 @@ function nvmu {
   nvm use
 }
 
-
 #eval "$(pyenv init -)"
 
 export LDFLAGS="-L/usr/local/opt/libxml2/lib"
@@ -264,3 +262,15 @@ export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
 source /Users/ritchie/Library/Preferences/org.dystroy.broot/launcher/bash/br
 export PATH="/usr/local/opt/go@1.12/bin:$PATH"
 export PATH="/Users/ritchie/code/gocode/bin:$PATH"
+
+eval "$(starship init bash)"
+
+if command -v brew >/dev/null 2>&1; then
+	# Load rupa's z if installed
+	[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+fi
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+echo "Today's oblique strategy:"
+fortune ~/obliqueMOTD/obliquestrategies ~/obliqueMOTD/diebenkorn_notes
