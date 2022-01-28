@@ -60,7 +60,7 @@ filetype plugin indent on    " required
 
 vnoremap . :norm.<CR>
 let &t_Co=256
-colorscheme base16-default-dark
+colorscheme gruvbox
 highlight LineNr ctermfg=grey
 set autoread
 au FocusGained,BufEnter * :checktime
